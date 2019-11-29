@@ -22,15 +22,16 @@
 
 ## Tata Cara Akses End point by Postman
 
+<p>
 <b>1.Super Admin / Admin</b>
 
 <b>Create User Narator & Buzzer</b>
 
-Deskripsi: digunakan untuk membuat user dengan role narator atau buzzer<br/>
-Method: POST <br/>
-URL: localhost:4000/api/v1/admin/user<br/>
+Deskripsi: digunakan untuk membuat user dengan role narator atau buzzer
+Method: POST 
+URL: localhost:4000/api/v1/admin/user
 
-Format Pengisian:<br/>
+Format Pengisian:
 username : varchar,
 password : varchar,
 id_role : integer (sesuaikan dengan id pada tabel roles)
@@ -62,3 +63,5 @@ Contoh Pengisian Row JSON:
 "content": "Lorem Ipsum Dolor Testing",
 "file": "https://images.unsplash.com/photo-1572530812379-7540c450e9a8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
 }
+
+</p>
