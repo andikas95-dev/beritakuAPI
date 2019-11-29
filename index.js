@@ -8,10 +8,13 @@ const port = 4000;
 app.use(bodyParser.json());
 
 //controller
-// const AuthController = require('./controllers/authController');
+const AuthController = require('./controllers/authController');
 const AdminController = require('./controllers/adminController');
 const NewsletterController = require('./controllers/newsletterController')
 const SharelogController = require('./controllers/shareLogController')
+
+//middleware
+const { authenticated } = require('./middleware')
 
 //endpoint check server
 app.get('/', (req, res) => {
@@ -20,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.group('/api/v1', (router) => {
     //endpoint auth
-    // router.post('/login', AuthController.login)
+    router.post('/login', AuthController.login)
 
     //ENDPOINT NEWSLETTER
     //get data newsletter untuk semua role
@@ -32,7 +35,7 @@ app.group('/api/v1', (router) => {
     //add user
     router.post('/admin/user', AdminController.createUser);
 
-    //get data berita yang di share dan siapa saja yang share
+    //get data berita yang di share oleh user dengan role buzzer
     router.get('/admin/sharelogsbuzzer', SharelogController.indexForAdmin)
 
     //edit newsletter untuk admin
