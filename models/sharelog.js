@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const sharelog = sequelize.define('sharelog', {
     id_user: DataTypes.INTEGER,
+    id_role: DataTypes.INTEGER,
     id_newsletter: DataTypes.INTEGER,
     id_media_social: DataTypes.INTEGER
   }, {});
@@ -9,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     sharelog.belongsTo(models.user, {
       foreignKey: 'id_user'
+    });
+    sharelog.belongsTo(models.role, {
+      foreignKey: 'id_role'
     });
     sharelog.belongsTo(models.newsletter, {
       foreignKey: 'id_newsletter'

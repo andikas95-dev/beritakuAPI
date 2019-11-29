@@ -2,18 +2,24 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('share_media', [
+    return queryInterface.bulkInsert('users', [
       {
         id: 1,
-        media_social: 'Whatsapp'
+        username: 'admin',
+        password: 'admin',
+        id_role: 1
       },
       {
         id: 2,
-        media_social: 'Message'
+        username: 'narator',
+        password: 'narator',
+        id_role: 2
       },
       {
         id: 3,
-        media_social: 'Facebook'
+        username: 'buzzer',
+        password: 'buzzer',
+        id_role: 3
       },
     ], {});
   },

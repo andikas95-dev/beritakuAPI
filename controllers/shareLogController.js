@@ -25,6 +25,14 @@ exports.index = (req, res) => {
         .catch(err => res.send(err))
 }
 
+exports.indexForAdmin = (req, res) => {
+    ShareLogs.findAll({
+        where: { id_role: 3 }
+    })
+        .then(result => res.send(result))
+        .catch(err => res.send(err))
+}
+
 exports.createShareLog = (req, res) => {
     var id_newsletter = Number(req.params.id_newsletter)
     var id_user = Number(req.params.id_user)

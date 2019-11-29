@@ -18,6 +18,16 @@ module.exports = {
         onUpdate: 'cascade',
         onDelete: 'cascade'
       },
+      id_role: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'roles',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade',
+      },
       id_newsletter: {
         type: Sequelize.INTEGER,
         allowNull: false,

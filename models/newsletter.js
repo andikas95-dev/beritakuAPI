@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   newsletter.associate = function (models) {
     // associations can be defined here
     newsletter.belongsTo(models.user, {
-      foreignKey: 'id_user'
+      foreignKey: 'id'
     });
     // newsletter.hasMany(models.sharelog, {
     //   foreignKey: 'id'

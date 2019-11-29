@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     user.belongsTo(models.role, {
       foreignKey: 'id_role',
     });
-    // user.hasMany(models.sharelog, {
-    //   foreignKey: 'id'
-    // });
+    user.hasMany(models.sharelog, {
+      foreignKey: 'id'
+    });
   };
   return user;
 };

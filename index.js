@@ -22,38 +22,36 @@ app.group('/api/v1', (router) => {
     //endpoint auth
     // router.post('/login', AuthController.login)
 
-    //endpoint newsletter
-    // get data newsletter untuk semua role
+    //ENDPOINT NEWSLETTER
+    //get data newsletter untuk semua role
     router.get('/newsletters', NewsletterController.index);
 
-    //endpoint Super Admin
+    //ENDPOINT ADMIN
+    //get data user
     router.get('/admin/users', AdminController.index);
-
     //add user
     router.post('/admin/user', AdminController.createUser);
 
+    //get data berita yang di share dan siapa saja yang share
+    router.get('/admin/sharelogsbuzzer', SharelogController.indexForAdmin)
+
     //edit newsletter untuk admin
     router.patch('/newsletter/:id_newsletter', AdminController.updateNewsletterAdmin);
-
     //delete newsletter untuk admin
     router.delete('/newsletter/:id_newsletter', AdminController.deleteNewsletterAdmin)
 
-
-    //endpoint narator
-
+    //ENDPOINT NARATOR
     //create newsletter untuk role admin & narator
     router.post('/:id_user/newsletter', NewsletterController.createNewsletter);
-
     //edit newsletter bagi pemilik user
     router.patch('/:id_user/newsletter/:id_newsletter', NewsletterController.updateNewsletter)
-
     //delete newsletter bagi pemilik user
     router.delete('/:id_user/newsletter/:id_newsletter', NewsletterController.deleteNewsletter)
 
-    //endpoint sharelogs
-    router.post('/:id_user/newsletter/:id_newsletter/share', SharelogController.createShareLog)
 
+    //ENDPOINT SHARELOG
     router.get('/sharelogs', SharelogController.index)
+    router.post('/:id_user/newsletter/:id_newsletter/share', SharelogController.createShareLog)
 })
 
 
