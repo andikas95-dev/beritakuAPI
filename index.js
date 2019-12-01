@@ -31,25 +31,25 @@ app.group('/api/v1', (router) => {
 
     //ENDPOINT ADMIN
     //get data user
-    router.get('/admin/users', AdminController.index);
+    router.get('/admin/users', authenticated, AdminController.index);
     //add user
-    router.post('/admin/user', AdminController.createUser);
+    router.post('/admin/user', authenticated, AdminController.createUser);
 
     //get data berita yang di share oleh user dengan role buzzer
-    router.get('/admin/sharelogsbuzzer', SharelogController.indexForAdmin)
+    router.get('/admin/sharelogsbuzzer', authenticated, SharelogController.indexForAdmin)
 
     //edit newsletter untuk admin
-    router.patch('/newsletter/:id_newsletter', AdminController.updateNewsletterAdmin);
+    router.patch('/newsletter/:id_newsletter', authenticated, AdminController.updateNewsletterAdmin);
     //delete newsletter untuk admin
-    router.delete('/newsletter/:id_newsletter', AdminController.deleteNewsletterAdmin)
+    router.delete('/newsletter/:id_newsletter', authenticated, AdminController.deleteNewsletterAdmin)
 
     //ENDPOINT NARATOR
     //create newsletter untuk role admin & narator
-    router.post('/:id_user/newsletter', NewsletterController.createNewsletter);
+    router.post('/:id_user/newsletter', authenticated, NewsletterController.createNewsletter);
     //edit newsletter bagi pemilik user
-    router.patch('/:id_user/newsletter/:id_newsletter', NewsletterController.updateNewsletter)
+    router.patch('/:id_user/newsletter/:id_newsletter', authenticated, NewsletterController.updateNewsletter)
     //delete newsletter bagi pemilik user
-    router.delete('/:id_user/newsletter/:id_newsletter', NewsletterController.deleteNewsletter)
+    router.delete('/:id_user/newsletter/:id_newsletter', authenticated, NewsletterController.deleteNewsletter)
 
 
     //ENDPOINT SHARELOG
