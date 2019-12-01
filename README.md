@@ -180,17 +180,34 @@ localhost:4000/api/v1/2/newsletter/1
 
 Deskripsi: untuk menyebarkan berita ke media sosial
 Method: POST
-URL: /:id_user(isi sesuai id user)/newsletter/:id_newsletter(isi sesuai id newsletter yang akan di ubah)/share
+URL: localhost:4000/api/v1/:id_user(isi sesuai id user)/newsletter/:id_newsletter(isi sesuai id newsletter yang akan di ubah)/share
 
 Format Pengisian:
 id_media_social: integer
 
 Contoh Pengisian url:
-localhost:4000/api/v1/2/newsletter
+localhost:4000/api/v1/2/newsletter/1/share
 
 Contoh Pengisian Row JSON:
 {
-"title": "Lorem Ipsum",
-"content": "Lorem Ipsum Dolor Testing",
-"file": "https://images.unsplash.com/photo-1572530812379-7540c450e9a8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+"id_media_social": "1",
+}
+
+<b>3.Buzzer</b>
+
+<b>Share Berita</b>
+
+Deskripsi: untuk menyebarkan berita ke media sosial
+Method: POST
+URL: localhost:4000/api/v1/:id_user(isi sesuai id user)/newsletter/:id_newsletter(isi sesuai id newsletter yang akan di ubah)/share
+
+Format Pengisian:
+id_media_social: integer
+
+Contoh Pengisian url:
+localhost:4000/api/v1/3/newsletter/1/share
+
+Contoh Pengisian Row JSON:
+{
+"id_media_social": "1",
 }
