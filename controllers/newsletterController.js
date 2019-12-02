@@ -3,6 +3,7 @@ const Newsletters = models.newsletter
 const Users = models.user
 
 
+//Melihat List Newsletter
 exports.index = (req, res) => {
     Newsletters.findAll({
         include: [
@@ -16,6 +17,7 @@ exports.index = (req, res) => {
         .catch(err => res.send(err))
 }
 
+//Membuat Newsletter
 exports.createNewsletter = (req, res) => {
     var { title, content, file } = req.body;
     var { id_user } = req.params
@@ -29,6 +31,7 @@ exports.createNewsletter = (req, res) => {
         .catch(err => res.send(err))
 }
 
+// Mengubah Newsletter
 exports.updateNewsletter = (req, res) => {
     var { title, content, file } = req.body
     var { id_user, id_newsletter } = req.params
@@ -52,6 +55,7 @@ exports.updateNewsletter = (req, res) => {
         }))
 }
 
+//Menghapus Newsletter
 exports.deleteNewsletter = (req, res) => {
     var { id_newsletter, id_user } = req.params
 

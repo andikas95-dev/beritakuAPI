@@ -4,6 +4,8 @@ const Newsletters = models.newsletter
 const Users = models.user
 const Share_Media = models.share_media
 
+
+//Melihat Semua History Share
 exports.index = (req, res) => {
     ShareLogs.findAll({
         include: [
@@ -25,6 +27,7 @@ exports.index = (req, res) => {
         .catch(err => res.send(err))
 }
 
+//Melihat Semua History Share Buzzer untuk Admin
 exports.indexForAdmin = (req, res) => {
     ShareLogs.findAll({
         where: { id_role: 3 }
@@ -33,6 +36,7 @@ exports.indexForAdmin = (req, res) => {
         .catch(err => res.send(err))
 }
 
+//Membuat History Share untuk Buzzer & Narator
 exports.createShareLog = (req, res) => {
     var id_newsletter = Number(req.params.id_newsletter)
     var id_user = Number(req.params.id_user)

@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const models = require('../models');
 const Users = models.user
 
+
+//Untuk login
 exports.login = (req, res) => {
     const { username, password } = req.body
 
